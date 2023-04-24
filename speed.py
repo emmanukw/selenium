@@ -1,6 +1,7 @@
 import time
 
 from selenium import webdriver
+from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from time import sleep
@@ -9,8 +10,9 @@ PROMISED_UPLINK = 150
 PROMISED_DOWNLINK = 50
 TWITTER_EMAIL = "maxreproach@gmail.com"
 TWITTER_PASSWORD = "Gavialbert2015!"
+CHROME_PATH = r'C:\Users\Manu\Desktop\Development\chromedriver.exe'
 
-ser = Service(r"C:\Users\Manu\Desktop\Development\chromedriver.exe")
+ser = Service(CHROME_PATH)
 op = webdriver.ChromeOptions()
 
 
@@ -68,3 +70,8 @@ class InternetSpeedTwitterBot:
 
         time.sleep(2)
         self.driver.quit()
+
+
+bot = InternetSpeedTwitterBot(CHROME_PATH)
+bot.get_internet_speed()
+bot.tweet_at_provider()
